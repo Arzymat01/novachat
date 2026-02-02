@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:novachat/modules/chat_pages/screen/chats_page.dart';
 import 'package:novachat/modules/contact_pages/screen/contact_pages_screen.dart';
 import 'package:novachat/modules/main_page/screen/main_screen.dart';
-import 'package:novachat/modules/status_pages/screen/status_pages_screen.dart';
+
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});
@@ -25,7 +26,7 @@ class _CustomBottomNavigationBarState
 
   /// 🔹 БАРАКТАР
   final List<Widget> _pages = const [
-     ChatsPage(),
+     MessengerChatsPage(name: "", ),
     MainScreen(),
     ContactPagesScreen(),
   
@@ -70,7 +71,7 @@ class _CustomBottomNavigationBarState
                   alignment: _indicatorAlignment(),
                   child: Container(
                     margin: EdgeInsets.only(bottom: 8.h),
-                    width: 40.w,
+                    width: 100.w,
                     height: 4.h,
                     decoration: BoxDecoration(
                       color: Colors.black,
@@ -117,7 +118,7 @@ class _CustomBottomNavigationBarState
             ),
 
             /// 🔔 BADGE (Users)
-            if (index == 1)
+            if (index == 2)
               Positioned(
                 right: 6,
                 top: 8,
