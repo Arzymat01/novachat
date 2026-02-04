@@ -26,7 +26,7 @@ class _CustomBottomNavigationBarState
 
   /// 🔹 БАРАКТАР
   final List<Widget> _pages = const [
-     MessengerChatsPage(name: "", ),
+     MessengerChatsPage(name: "", profilimage: "", ),
     MainScreen(),
     ContactPagesScreen(),
   

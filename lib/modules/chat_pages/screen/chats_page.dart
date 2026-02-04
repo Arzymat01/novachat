@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:novachat/modules/chat_pages/screen/messenger.dart';
 
 class MessengerChatsPage extends StatelessWidget {
-  const MessengerChatsPage({super.key, required this.name});
+  const MessengerChatsPage({
+    super.key,
+    required this.name,
+    required this.profilimage,
+  });
   final String name;
+  final String profilimage;
 
   @override
   Widget build(BuildContext context) {
@@ -15,33 +20,25 @@ class MessengerChatsPage extends StatelessWidget {
             /// 🔝 HEADER
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-              child:
-               
-
-
-                
-                 Row(
-                  children: [
-                    const CircleAvatar(
-                      radius: 20,
-                      backgroundImage:
-                          NetworkImage('https://i.pravatar.cc/150?img=12'),
+              child: Row(
+                children: [
+                  const CircleAvatar(
+                    radius: 20,
+                    backgroundImage: NetworkImage(
+                      'https://i.pravatar.cc/150?img=12',
                     ),
-                    const SizedBox(width: 12),
-                    const Text(
-                      'Chats',
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Spacer(),
-                    _circleIcon(Icons.camera_alt),
-                    const SizedBox(width: 10),
-                    _circleIcon(Icons.edit),
-                  ],
-                ),
-              
+                  ),
+                  const SizedBox(width: 12),
+                  const Text(
+                    'Chats',
+                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                  ),
+                  const Spacer(),
+                  _circleIcon(Icons.camera_alt),
+                  const SizedBox(width: 10),
+                  _circleIcon(Icons.edit),
+                ],
+              ),
             ),
 
             /// 🔍 SEARCH
@@ -58,10 +55,7 @@ class MessengerChatsPage extends StatelessWidget {
                   children: [
                     Icon(Icons.search, color: Colors.grey),
                     SizedBox(width: 8),
-                    Text(
-                      'Search',
-                      style: TextStyle(color: Colors.grey),
-                    ),
+                    Text('Search', style: TextStyle(color: Colors.grey)),
                   ],
                 ),
               ),
@@ -93,29 +87,36 @@ class MessengerChatsPage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 children: [
                   _chatTile(
-                      context: context,
+                    context: context,
                     name: 'Martin Randolph',
                     message: "You: What's man! · 9:40 AM",
                     online: true,
+                    profilimage: "https://i.pravatar.cc/150?img=32",
                   ),
-                  _chatTile(  context: context,
+                  _chatTile(
+                    context: context,
                     name: 'Andrew Parker',
                     message: 'You: Ok, thanks! · 9:25 AM',
+                    online: true,
+                    profilimage: "https://i.pravatar.cc/150?img=32",
                   ),
                   _chatTile(
                     name: 'Karen Castillo',
                     message: 'You: Ok, see you... · Fri',
-                      context: context,
+                    context: context,
+                    profilimage: "https://i.pravatar.cc/150?img=32",
                   ),
                   _chatTile(
                     name: 'Maisy Humphrey',
                     message: 'Have a good day, Maisy! · Fri',
-                      context: context,
+                    context: context,
+                    profilimage: "https://i.pravatar.cc/150?img=32",
                   ),
                   _chatTile(
                     name: 'Joshua Lawrence',
                     message: 'The business plan loo... · Thu',
-                      context: context,
+                    context: context,
+                    profilimage: "https://i.pravatar.cc/150?img=32",
                   ),
 
                   const SizedBox(height: 12),
@@ -144,8 +145,7 @@ class MessengerChatsPage extends StatelessWidget {
                             children: [
                               Text(
                                 'Pixsellz',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold),
+                                style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 'Make design process easier...',
@@ -159,15 +159,16 @@ class MessengerChatsPage extends StatelessWidget {
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 6),
+                            horizontal: 12,
+                            vertical: 6,
+                          ),
                           decoration: BoxDecoration(
                             color: Colors.purple,
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: const Text(
                             'View More',
-                            style: TextStyle(
-                                color: Colors.white, fontSize: 12),
+                            style: TextStyle(color: Colors.white, fontSize: 12),
                           ),
                         ),
                       ],
@@ -204,15 +205,15 @@ class MessengerChatsPage extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 26,
-                backgroundColor:
-                    isAdd ? Colors.grey.shade300 : Colors.transparent,
+                backgroundColor: isAdd
+                    ? Colors.grey.shade300
+                    : Colors.transparent,
                 backgroundImage: isAdd
                     ? null
                     : NetworkImage(
-                        'https://i.pravatar.cc/150?img=${name.length * 3}'),
-                child: isAdd
-                    ? const Icon(Icons.add, size: 28)
-                    : null,
+                        'https://i.pravatar.cc/150?img=${name.length * 3}',
+                      ),
+                child: isAdd ? const Icon(Icons.add, size: 28) : null,
               ),
               if (!isAdd)
                 Positioned(
@@ -231,10 +232,7 @@ class MessengerChatsPage extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 6),
-          Text(
-            name,
-            style: const TextStyle(fontSize: 12),
-          ),
+          Text(name, style: const TextStyle(fontSize: 12)),
         ],
       ),
     );
@@ -242,73 +240,72 @@ class MessengerChatsPage extends StatelessWidget {
 
   /// 💬 CHAT TILE
   static Widget _chatTile({
-  required BuildContext context,
-  required String name,
-  required String message,
-  bool online = false,
-}) {
-  return InkWell(
-    onTap: () {
-      Navigator.push(
-  context,
-  MaterialPageRoute(
-    builder: (context) => MessengerChatPage(name: name),
-  ),
-);
-
-    },
-    child: Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        children: [
-          Stack(
-            children: [
-              const CircleAvatar(
-                radius: 26,
-                backgroundImage:
-                    NetworkImage('https://i.pravatar.cc/150?img=32'),
-              ),
-              if (online)
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: Container(
-                    width: 14,
-                    height: 14,
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.white, width: 2),
+    required BuildContext context,
+    required String name,
+    required String message,
+    bool online = false,
+    required String profilimage,
+  }) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                MessengerChatPage(name: name, profilimage: profilimage),
+          ),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Row(
+          children: [
+            Stack(
+              children: [
+                CircleAvatar(
+                  radius: 26,
+                  backgroundImage: NetworkImage(profilimage),
+                ),
+                if (online)
+                  Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: Container(
+                      width: 14,
+                      height: 14,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 2),
+                      ),
                     ),
                   ),
-                ),
-            ],
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  message,
-                  style: const TextStyle(
-                      color: Colors.grey, fontSize: 13),
-                ),
               ],
             ),
-          ),
-          const Icon(Icons.check_circle,
-              size: 16, color: Colors.grey),
-        ],
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    message,
+                    style: const TextStyle(color: Colors.grey, fontSize: 13),
+                  ),
+                ],
+              ),
+            ),
+            const Icon(Icons.check_circle, size: 16, color: Colors.grey),
+          ],
+        ),
       ),
-    ),
-  );
-}
-
+    );
+  }
 }
