@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:novachat/modules/chat_pages/screen/messenger.dart';
+import 'package:novachat/modules/chat_pages/screen/profil.dart';
 
 class MessengerChatsPage extends StatelessWidget {
   const MessengerChatsPage({
@@ -22,10 +23,23 @@ class MessengerChatsPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: Row(
                 children: [
-                  const CircleAvatar(
-                    radius: 20,
-                    backgroundImage: NetworkImage(
-                      'https://i.pravatar.cc/150?img=12',
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChatProfilePage(
+                            name: name,
+                            profilimage: profilimage,
+                          ),
+                        ),
+                      );
+                    },
+                    child: const CircleAvatar(
+                      radius: 20,
+                      backgroundImage: NetworkImage(
+                        'https://i.pravatar.cc/150?img=12',
+                      ),
                     ),
                   ),
                   const SizedBox(width: 12),
