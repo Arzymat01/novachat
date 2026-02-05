@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:novachat/components/app_colors.dart';
 import 'package:novachat/modules/chat_pages/components/button_cpv.dart';
+import 'package:novachat/modules/chat_pages/screen/audio_call_screen.dart';
+import 'package:novachat/modules/chat_pages/screen/video_call_screen.dart';
 
 class ChatProfilePage extends StatelessWidget {
   const ChatProfilePage({
@@ -55,14 +57,32 @@ class ChatProfilePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 BottomCpv(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            CallScreen(name: name, profilimage: profilimage),
+                      ),
+                    );
+                  },
                   iconpath: 'assets/icons/call.svg',
                   width: 24.w,
                   height: 24.h,
                   color: AppColors.blue,
                 ),
                 BottomCpv(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => VideoCallScreen(
+                          name: name,
+                          profilimage: profilimage,
+                        ),
+                      ),
+                    );
+                  },
                   iconpath: 'assets/icons/videocall.svg',
                   width: 24.w,
                   height: 24.h,
