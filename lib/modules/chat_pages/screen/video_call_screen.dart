@@ -46,11 +46,13 @@ class VideoCallScreen extends StatelessWidget {
                     svgPath: "assets/icons/messages.svg",
                     color: Colors.white24,
                     onTap: () => Navigator.pop(context),
+                    radius: 28,
                   ),
                   CallButton(
                     svgPath: "assets/icons/left.svg",
                     color: Colors.white24,
                     onTap: () {},
+                    radius: 28,
                   ),
                 ],
               ),
@@ -99,15 +101,18 @@ class VideoCallScreen extends StatelessWidget {
                         svgPath: "assets/icons/voicez.svg",
                         color: Colors.white24,
                         onTap: () {},
+                        radius: 28,
                       ),
                       CallButton(
                         svgPath: "assets/icons/micro.svg",
                         color: Colors.white24,
                         onTap: () {},
+                        radius: 28,
                       ),
                       CallButton(
                         svgPath: "assets/icons/callter.svg",
                         color: Colors.red,
+                        radius: 28,
                         onTap: () {
                           Navigator.pop(context);
                         },

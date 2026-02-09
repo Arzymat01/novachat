@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:novachat/modules/chat_pages/screen/messenger.dart';
-import 'package:novachat/modules/chat_pages/screen/profil.dart';
+
+import 'package:novachat/modules/chat_pages/screen/settings_screen.dart';
 
 class MessengerChatsPage extends StatelessWidget {
   const MessengerChatsPage({
@@ -14,7 +15,7 @@ class MessengerChatsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: Column(
           children: [
@@ -28,10 +29,7 @@ class MessengerChatsPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ChatProfilePage(
-                            name: name,
-                            profilimage: profilimage,
-                          ),
+                          builder: (context) => SettingsScreen(),
                         ),
                       );
                     },

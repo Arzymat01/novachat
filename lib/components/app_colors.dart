@@ -18,8 +18,13 @@ class AppColors {
   static const Color backgroundLevel4 = Color(0xFF262E36);
 
   // основные цвета
-  static const Color accentGreen = Color(0xFF538851);
-  static const Color accentRed = Color(0xFFAB3F3F);
+  static const Color dark = Color(0xFF000000);
+  static const Color green = Color(0xFF5AD439);
+  static const Color email = Color(0xFFFE294D);
+  static const Color phone = Color(0xFF0084FE);
+  static const Color notification = Color(0xFF8A54FF);
+  static const Color people = Color(0xFF00BFFF);
+  static const Color messages = Color(0xFF131CA8);
 
   // градиенты
   static const LinearGradient blueGradient = LinearGradient(

@@ -2,7 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:novachat/components/app_colors.dart';
+import 'package:novachat/components/theme_controller.dart';
 import 'package:novachat/modules/chat_pages/components/button_cpv.dart';
 import 'package:novachat/modules/chat_pages/screen/profil.dart';
 
@@ -24,16 +27,18 @@ class MessengerChatPage extends StatefulWidget {
 class _MessengerChatPageState extends State<MessengerChatPage> {
   bool isTyping = false;
   final TextEditingController _controller = TextEditingController();
+  bool isDarkMode = false;
+  final ThemeController controller = Get.find<ThemeController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
 
       /// 🔝 APP BAR
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.surface,
 
         leading: IconButton(
           onPressed: () {

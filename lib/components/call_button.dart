@@ -5,12 +5,14 @@ class CallButton extends StatelessWidget {
   final String svgPath;
   final Color color;
   final VoidCallback onTap;
+  final double? radius;
 
   const CallButton({
     super.key,
     required this.svgPath,
     required this.color,
     required this.onTap,
+    this.radius,
   });
 
   @override
@@ -19,7 +21,7 @@ class CallButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(56),
       onTap: onTap,
       child: CircleAvatar(
-        radius: 28,
+        radius: radius,
         backgroundColor: color,
         child: SvgPicture.asset(
           svgPath,

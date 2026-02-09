@@ -76,15 +76,18 @@ class CallScreen extends StatelessWidget {
                         svgPath: "assets/icons/voicez.svg",
                         color: Colors.white24,
                         onTap: () {},
+                        radius: 28,
                       ),
                       CallButton(
                         svgPath: "assets/icons/micro.svg",
                         color: Colors.white24,
                         onTap: () {},
+                        radius: 28,
                       ),
                       CallButton(
                         svgPath: "assets/icons/callter.svg",
                         color: Colors.red,
+                        radius: 28,
                         onTap: () {
                           Navigator.pop(context);
                         },
