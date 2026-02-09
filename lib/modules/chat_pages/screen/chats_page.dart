@@ -46,9 +46,9 @@ class MessengerChatsPage extends StatelessWidget {
                     style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                   ),
                   const Spacer(),
-                  _circleIcon(Icons.camera_alt),
+                  _circleIcon(context, Icons.camera_alt),
                   const SizedBox(width: 10),
-                  _circleIcon(Icons.edit),
+                  _circleIcon(context, Icons.edit),
                 ],
               ),
             ),
@@ -175,8 +175,12 @@ class MessengerChatsPage extends StatelessWidget {
                             vertical: 6,
                           ),
                           decoration: BoxDecoration(
-                            color: Colors.purple,
-                            borderRadius: BorderRadius.circular(12),
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                ? Colors
+                                      .white // Dark Mode -> ак түстө
+                                : Colors.black, // Light Mode -> кара түстө
+                            shape: BoxShape.circle,
                           ),
                           child: const Text(
                             'View More',
@@ -196,14 +200,24 @@ class MessengerChatsPage extends StatelessWidget {
   }
 
   /// 🔘 HEADER ICON
-  static Widget _circleIcon(IconData icon) {
+  static Widget _circleIcon(BuildContext context, IconData icon) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Colors.grey.shade200,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors
+                  .white // Dark Mode -> ак түстө
+            : Colors.black, // Light Mode -> кара түстө
         shape: BoxShape.circle,
       ),
-      child: Icon(icon, size: 20),
+      child: Icon(
+        icon,
+        size: 20,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors
+                  .black // Dark Mode -> иконка кара
+            : Colors.white, // Light Mode -> иконка ак
+      ),
     );
   }
 

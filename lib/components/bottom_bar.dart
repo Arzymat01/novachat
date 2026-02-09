@@ -5,7 +5,6 @@ import 'package:novachat/modules/chat_pages/screen/chats_page.dart';
 import 'package:novachat/modules/contact_pages/screen/contact_pages_screen.dart';
 import 'package:novachat/modules/main_page/screen/main_screen.dart';
 
-
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});
 
@@ -14,8 +13,7 @@ class CustomBottomNavigationBar extends StatefulWidget {
       _CustomBottomNavigationBarState();
 }
 
-class _CustomBottomNavigationBarState
-    extends State<CustomBottomNavigationBar> {
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _selectedIndex = 1;
 
   final List<String> _icons = [
@@ -26,10 +24,9 @@ class _CustomBottomNavigationBarState
 
   /// 🔹 БАРАКТАР
   final List<Widget> _pages = const [
-     MessengerChatsPage(name: "", profilimage: "", ),
+    MessengerChatsPage(name: "", profilimage: ""),
     MainScreen(),
     ContactPagesScreen(),
-  
   ];
 
   @override
